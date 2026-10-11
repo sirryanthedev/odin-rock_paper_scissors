@@ -1,0 +1,68 @@
+body {
+    background-image: url(images/theme.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin: 0px;
+}
+
+.footer {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #0b061a;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+}
+
+.footer-img {
+    width: auto;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.footer-img:hover {
+    transform: rotate(360deg);
+}
+
+.footer-text {
+    font-family: orbitron;
+    color: #00d8ff
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(15, 10, 30, 0.75);
+    backdrop-filter: blur(8px);
+}
+
+h1 {
+    color: #ff007f;
+    text-shadow: 0 0 8px #ff007f, 0 0 20px #ff007f;
+    font-family: 'Press Start 2P';
+}
+
+.score-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.your-score-container, .computer-score-container {
+    display: flex;
+    gap: 20px;
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.your-score, .your-score-counter, .computer-score, .computer-score-counter {
+    font-family: orbitron;
+}
