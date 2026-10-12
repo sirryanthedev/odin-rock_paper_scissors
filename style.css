@@ -6,9 +6,10 @@ body {
     background-attachment: fixed;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:space-around;
     padding: 0px;
     margin: 0px;
+    min-height: 100vh;
 }
 
 .footer {
@@ -44,6 +45,10 @@ body {
     justify-content: center;
     background-color: rgba(15, 10, 30, 0.75);
     backdrop-filter: blur(8px);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
 }
 
 h1 {
@@ -103,7 +108,7 @@ button:hover {
 
 }
 
-.restart-container {
+.restart-img-container {
     display: flex;
     justify-content: center;
 }
@@ -111,17 +116,28 @@ button:hover {
 .restart-img {
     height: auto;
     width: 75px;
-    margin-top: 20px;
     cursor: pointer;
     transition: scale .25s ease;
 }
 
 .restart-img:hover {
-    scale: 0.8;
+    scale: 0.9;
 }
 
 .player-you, .player-computer {
     font-family: orbitron;
     font-weight: bold;
     font-size: 75px;
+}
+
+.user-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.player-you-img-container, .player-computer-img-container {
+    height: 500px;
+    width: 350px;
+    outline: 5px solid black;
 }
