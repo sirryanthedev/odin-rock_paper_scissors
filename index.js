@@ -18,10 +18,17 @@ function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
-  function showScores() {
+  function logScores() {
     console.log(
       "Your score: " + humanScore + "\n" + "Computer's score: " + computerScore,
     );
+  }
+
+  function displayScores() {
+    const humanPlayerCount = document.querySelector(".your-score-counter");
+    const computerPlayerCount = document.querySelector(".computer-score-counter");
+    humanPlayerCount.textContent = humanScore;
+    computerPlayerCount.textContent = computerScore;
   }
 
   function playRound(humanChoice, computerChoice) {
