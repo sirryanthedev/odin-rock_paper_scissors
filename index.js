@@ -59,8 +59,7 @@ function playGame() {
             console.log("You lose! Scissors beats paper.");
             return "lose";
             }
-        } else {
-            // humanChoice === "scissors"
+        } else if (humanChoice === "scissors"){
             if (computerChoice === "rock") {
             computerScore++;
             console.log("You lost! Rock beats paper.");
@@ -74,13 +73,8 @@ function playGame() {
             console.log("Draw! Scissors meets Scissors.");
             return "draw";
             }
+        } else {
+          alert("You did not give correct input! Try again.");
         }
-    }
-
-    for (let i = 0; i < 5; i++ ) { 
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        playRound(humanSelection, computerSelection);
-        showScores();
     }
 }
