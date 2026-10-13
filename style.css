@@ -141,6 +141,7 @@ button:hover {
     height: 500px;
     width: 350px;
     outline: 5px solid black;
+    display: flex;
 }
 
 .game-text {
@@ -162,4 +163,9 @@ button:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.player-you-img, .player-computer-img {
+    height: 100%;
+    width: 100%;
 }
