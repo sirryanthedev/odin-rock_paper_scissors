@@ -58,18 +58,38 @@ function resetComputerChoiceImg() {
 }
 
 const rock_button = document.querySelector(".rock-button");
-rock_button.addEventListener("click", () => setHumanChoiceImg("rock"));
+rock_button.addEventListener("click", () => {
+  setHumanChoiceImg("rock");
+  computerChoice = getComputerChoice();
+  playRound("rock", computerChoice);
+  setComputerChoiceImg(computerChoice);
+  displayScores();
+});
 
 const paper_button = document.querySelector(".paper-button");
-paper_button.addEventListener("click", () => setHumanChoiceImg("paper"));
+paper_button.addEventListener("click", () => {
+  setHumanChoiceImg("paper");
+  computerChoice = getComputerChoice();
+  playRound("paper", computerChoice);
+  setComputerChoiceImg(computerChoice);
+  displayScores();
+});
 
 const scissors_button = document.querySelector(".scissors-button");
-scissors_button.addEventListener("click", () => setHumanChoiceImg("scissors"));
+scissors_button.addEventListener("click", () => {
+  setHumanChoiceImg("scissors");
+  computerChoice = getComputerChoice();
+  playRound("scissors", computerChoice);
+  setComputerChoiceImg(computerChoice);
+  displayScores();
+});
 
 const restart_img = document.querySelector(".restart-img");
 restart_img.addEventListener("click", () => {
   resetHumanChoiceImg();
   resetComputerChoiceImg();
+  resetScores();
+  
 });
 
 // ---
@@ -140,4 +160,13 @@ function playRound(humanChoice, computerChoice) {
   } else {
     alert("You did not give correct input! Try again.");
   }
+}
+
+function resetScores() {
+  humanScore = 0;
+  computerScore = 0;
+  const humanPlayerCount = document.querySelector(".your-score-counter");
+  const computerPlayerCount = document.querySelector(".computer-score-counter");
+  humanPlayerCount.textContent = "0";
+  computerPlayerCount.textContent = "0";
 }
