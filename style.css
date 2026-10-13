@@ -82,6 +82,7 @@ h1 {
 .player-all-container {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .button-container {
@@ -140,4 +141,25 @@ button:hover {
     height: 500px;
     width: 350px;
     outline: 5px solid black;
+}
+
+.game-text {
+    color: black;
+    font-family: orbitron;
+    font-size: 25px;
+    text-shadow: 1px 2px white;
+}
+
+.vs-text {
+    color: yellow;
+    font-family: orbitron;
+    font-size: 100px;
+    text-shadow: 2px 2px black;
+}
+
+.game-vs-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
