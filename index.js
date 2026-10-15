@@ -86,12 +86,7 @@ scissors_button.addEventListener("click", () => {
 
 const restart_img = document.querySelector(".restart-img");
 restart_img.addEventListener("click", () => {
-  resetHumanChoiceImg();
-  resetComputerChoiceImg();
-  resetScores();
-  const gameText = document.querySelector(".game-text");
-  gameText.textContent = "Press a button to play";
-  changeTextColor("black");
+  resetGame();
 });
 
 // ---
@@ -185,4 +180,30 @@ function resetScores() {
 function changeTextColor(color) {
   const gameText = document.querySelector(".game-text");
   gameText.style.color = color;
+}
+
+function resetMessage() {
+  changeTextColor("black");
+  const gameText = document.querySelector(".game-text");
+  gameText.textContent = "Press a button to play";
+}
+
+function resetGame() {
+    resetHumanChoiceImg();
+    resetComputerChoiceImg();
+    resetScores();
+    resetMessage();
+}
+
+function checkWinner() {
+  if (humanScore === 5) {
+    alert(
+      `You won!\nHere are the details:\nYou: ${humanScore}\nComputer: ${computerScore}`,
+    );
+  } else if (computerScore === 5) {
+    alert(
+      `You lost!\nHere are the details:\nYou: ${humanScore}\nComputer: ${computerScore}`,
+    );
+  }
+  resetGame();
 }
