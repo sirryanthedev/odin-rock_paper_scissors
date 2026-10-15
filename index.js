@@ -124,20 +124,20 @@ function playRound(humanChoice, computerChoice) {
       return "draw";
     } else if (computerChoice === "paper") {
       computerScore++;
-      gameText.textContent = "You lose! Paper beats rock.";
+      gameText.textContent = "You lost! Paper beats rock.";
       changeTextColor("red");
       return "lose";
     } else {
       // computerChoice === "scissors"
       humanScore++;
-      gameText.textContent = "You win! Rock beats scissors.";
+      gameText.textContent = "You won! Rock beats scissors.";
       changeTextColor("green");
       return "win";
     }
   } else if (humanChoice === "paper") {
     if (computerChoice === "rock") {
       humanScore++;
-      gameText.textContent = "You win! Paper beats rock.";
+      gameText.textContent = "You won! Paper beats rock.";
       changeTextColor("green");
       return "win";
     } else if (computerChoice === "paper") {
@@ -147,7 +147,7 @@ function playRound(humanChoice, computerChoice) {
     } else {
       // computerChoice === "scissors"
       computerScore++;
-      gameText.textContent = "You lose! Scissors beats paper.";
+      gameText.textContent = "You lost! Scissors beats paper.";
       changeTextColor("red");
       return "lose";
     }
@@ -159,7 +159,7 @@ function playRound(humanChoice, computerChoice) {
       return "lost";
     } else if (computerChoice === "paper") {
       humanScore++;
-      gameText.textContent = "You win! Scissors beats paper.";
+      gameText.textContent = "You won! Scissors beats paper.";
       changeTextColor("green");
       return "win";
     } else {
@@ -168,7 +168,7 @@ function playRound(humanChoice, computerChoice) {
       changeTextColor("white");
       return "draw";
     }
-  } else {
+  } else { // error
     alert("You did not give correct input! Try again.");
   }
 }
