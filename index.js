@@ -59,28 +59,28 @@ function resetComputerChoiceImg() {
 
 const rock_button = document.querySelector(".rock-button");
 rock_button.addEventListener("click", () => {
-  setHumanChoiceImg("rock");
   computerChoice = getComputerChoice();
-  playRound("rock", computerChoice);
+  setHumanChoiceImg("rock");
   setComputerChoiceImg(computerChoice);
+  playRound("rock", computerChoice);
   displayScores();
 });
 
 const paper_button = document.querySelector(".paper-button");
 paper_button.addEventListener("click", () => {
-  setHumanChoiceImg("paper");
   computerChoice = getComputerChoice();
-  playRound("paper", computerChoice);
+  setHumanChoiceImg("paper");
   setComputerChoiceImg(computerChoice);
+  playRound("paper", computerChoice);
   displayScores();
 });
 
 const scissors_button = document.querySelector(".scissors-button");
 scissors_button.addEventListener("click", () => {
-  setHumanChoiceImg("scissors");
   computerChoice = getComputerChoice();
-  playRound("scissors", computerChoice);
+  setHumanChoiceImg("scissors");
   setComputerChoiceImg(computerChoice);
+  playRound("scissors", computerChoice);
   displayScores();
 });
 
@@ -90,7 +90,6 @@ restart_img.addEventListener("click", () => {
 });
 
 // ---
-
 let humanScore = 0;
 let computerScore = 0;
 
@@ -116,17 +115,20 @@ function playRound(humanChoice, computerChoice) {
     if (computerChoice === "rock") {
       gameText.textContent = "Draw! Rock meets rock.";
       changeTextColor("white");
+      checkWinner();
       return "draw";
     } else if (computerChoice === "paper") {
       computerScore++;
       gameText.textContent = "You lost! Paper beats rock.";
       changeTextColor("red");
+      checkWinner();
       return "lose";
     } else {
       // computerChoice === "scissors"
       humanScore++;
       gameText.textContent = "You won! Rock beats scissors.";
       changeTextColor("green");
+      checkWinner();
       return "win";
     }
   } else if (humanChoice === "paper") {
@@ -134,16 +136,19 @@ function playRound(humanChoice, computerChoice) {
       humanScore++;
       gameText.textContent = "You won! Paper beats rock.";
       changeTextColor("green");
+      checkWinner();
       return "win";
     } else if (computerChoice === "paper") {
       gameText.textContent = "Draw! Paper meets paper.";
       changeTextColor("white");
+      checkWinner();
       return "draw";
     } else {
       // computerChoice === "scissors"
       computerScore++;
       gameText.textContent = "You lost! Scissors beats paper.";
       changeTextColor("red");
+      checkWinner();
       return "lose";
     }
   } else if (humanChoice === "scissors") {
@@ -151,16 +156,19 @@ function playRound(humanChoice, computerChoice) {
       computerScore++;
       gameText.textContent = "You lost! Rock beats paper.";
       changeTextColor("red");
+      checkWinner();
       return "lost";
     } else if (computerChoice === "paper") {
       humanScore++;
       gameText.textContent = "You won! Scissors beats paper.";
       changeTextColor("green");
+      checkWinner();
       return "win";
     } else {
       // computerChoice === "scissors"
       gameText.textContent = "Draw! Scissors meets Scissors.";
       changeTextColor("white");
+      checkWinner();
       return "draw";
     }
   } else { // error
@@ -200,10 +208,11 @@ function checkWinner() {
     alert(
       `You won!\nHere are the details:\nYou: ${humanScore}\nComputer: ${computerScore}`,
     );
+    resetGame();
   } else if (computerScore === 5) {
     alert(
       `You lost!\nHere are the details:\nYou: ${humanScore}\nComputer: ${computerScore}`,
     );
+    resetGame();
   }
-  resetGame();
 }
