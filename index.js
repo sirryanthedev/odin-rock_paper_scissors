@@ -89,7 +89,9 @@ restart_img.addEventListener("click", () => {
   resetHumanChoiceImg();
   resetComputerChoiceImg();
   resetScores();
-  
+  const gameText = document.querySelector(".game-text");
+  gameText.textContent = "Press a button to play";
+  changeTextColor("black");
 });
 
 // ---
@@ -118,43 +120,52 @@ function playRound(humanChoice, computerChoice) {
   if (humanChoice === "rock") {
     if (computerChoice === "rock") {
       gameText.textContent = "Draw! Rock meets rock.";
+      changeTextColor("white");
       return "draw";
     } else if (computerChoice === "paper") {
       computerScore++;
       gameText.textContent = "You lose! Paper beats rock.";
+      changeTextColor("red");
       return "lose";
     } else {
       // computerChoice === "scissors"
       humanScore++;
       gameText.textContent = "You win! Rock beats scissors.";
+      changeTextColor("green");
       return "win";
     }
   } else if (humanChoice === "paper") {
     if (computerChoice === "rock") {
       humanScore++;
       gameText.textContent = "You win! Paper beats rock.";
+      changeTextColor("green");
       return "win";
     } else if (computerChoice === "paper") {
       gameText.textContent = "Draw! Paper meets paper.";
+      changeTextColor("white");
       return "draw";
     } else {
       // computerChoice === "scissors"
       computerScore++;
       gameText.textContent = "You lose! Scissors beats paper.";
+      changeTextColor("red");
       return "lose";
     }
   } else if (humanChoice === "scissors") {
     if (computerChoice === "rock") {
       computerScore++;
       gameText.textContent = "You lost! Rock beats paper.";
+      changeTextColor("red");
       return "lost";
     } else if (computerChoice === "paper") {
       humanScore++;
       gameText.textContent = "You win! Scissors beats paper.";
+      changeTextColor("green");
       return "win";
     } else {
       // computerChoice === "scissors"
       gameText.textContent = "Draw! Scissors meets Scissors.";
+      changeTextColor("white");
       return "draw";
     }
   } else {
@@ -169,4 +180,9 @@ function resetScores() {
   const computerPlayerCount = document.querySelector(".computer-score-counter");
   humanPlayerCount.textContent = "0";
   computerPlayerCount.textContent = "0";
+}
+
+function changeTextColor(color) {
+  const gameText = document.querySelector(".game-text");
+  gameText.style.color = color;
 }
